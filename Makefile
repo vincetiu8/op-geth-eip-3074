@@ -48,3 +48,14 @@ devtools:
 	env GOBIN= go install ./cmd/abigen
 	@type "solc" 2> /dev/null || echo 'Please install solc'
 	@type "protoc" 2> /dev/null || echo 'Please install protoc'
+
+account:
+	./build/bin/geth --datadir data/pn/node1 account new --password data/pn/pn_account_password.txt
+
+run:
+	./build/bin/geth --datadir=data/pn/node1 removedb
+	./build/bin/geth --datadir=data/pn/node1 init data/pn/pn_genesis.json
+	./build/bin/geth --datadir=data/pn/node1
+
+cli:
+	./build/bin/geth attach data/pn/node1/geth.ipc
