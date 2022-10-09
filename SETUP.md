@@ -24,7 +24,7 @@ This will set up an account and run a Geth node in the console.
 You should now have a working cluster and be able to interact with other accounts.
 
 ## Sending transactions
-1. Run `eth.sendTransaction({from: ACCOUNT_1, to: ACCOUNT_2, value: web3.toWei(ETH_BALANCE, "ether")})`
+1. Run `eth.sendTransaction({from: ACCOUNT_1, to: ACCOUNT_2, value: web3.toWei(ETH_BALANCE, "ether"), gas: GAS_VALUE})`
 
-## Deploying contracts
-1. Run ``
+## Debugging contracts
+1. Run `debug.traceTransaction(TRANSACTION)`

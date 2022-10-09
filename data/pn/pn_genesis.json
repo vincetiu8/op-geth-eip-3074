@@ -14,7 +14,7 @@
     "puxiBlock": 0
   },
   "alloc": {
-    "0x645bb735b5AE2a30Ca4A41cf92D1aA336E4cF348": {
+    "0x71562b71999873db5b286df957af199ec94617f7": {
       "balance": "9999999999999999999999999999"
     },
     "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa": {
@@ -22,7 +22,7 @@
       "balance": "0"
     },
     "0x000000000000000000000000000000000000bbbb": {
-      "code": "0x33600055",
+      "code": "0x32600055",
       "balance": "0"
     }
   },

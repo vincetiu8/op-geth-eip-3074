@@ -55,7 +55,7 @@ account:
 run:
 	./build/bin/geth --datadir=data/pn/node1 removedb
 	./build/bin/geth --datadir=data/pn/node1 init data/pn/pn_genesis.json
-	./build/bin/geth --datadir=data/pn/node1
+	./build/bin/geth --datadir=data/pn/node1 --http --http.port=8545 --allow-insecure-unlock
 
 cli:
 	./build/bin/geth attach data/pn/node1/geth.ipc
