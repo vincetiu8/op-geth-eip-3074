@@ -216,7 +216,17 @@ func enable3074(jt *JumpTable) {
 
 func opAuth(pc *uint64, interpreter *EVMInterpreter, scope *ScopeContext) ([]byte, error) {
 	stack := scope.Stack
-	commit, v, r, s := stack.pop(), stack.pop(), stack.pop(), stack.pop()
+	_, offset, _ := stack.pop(), stack.pop(), stack.pop()
+	offsetInt := int64(offset.Uint64())
+	memory := scope.Memory
+	v := new(uint256.Int)
+	v.SetBytes(memory.GetPtr(offsetInt, offsetInt+32))
+	r := new(uint256.Int)
+	r.SetBytes(memory.GetPtr(offsetInt+32, offsetInt+32))
+	s := new(uint256.Int)
+	s.SetBytes(memory.GetPtr(offsetInt+64, offsetInt+32))
+	commit := new(uint256.Int)
+	commit.SetBytes(memory.GetPtr(offsetInt+96, offsetInt+32))
 
 	// Zero out the current authorized account. Only update it if an address
 	// is successfully recovered from the signature.
@@ -254,7 +264,7 @@ func opAuth(pc *uint64, interpreter *EVMInterpreter, scope *ScopeContext) ([]byt
 		temp.Clear()
 	}
 
-	stack.push(&temp)
+	stack.push(temp)
 	return nil, nil
 }
 
