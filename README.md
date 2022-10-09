@@ -283,7 +283,7 @@ With the genesis state defined in the above JSON file, you'll need to initialize
 set:
 
 ```shell
-$ geth init path/to/genesis.json
+$ geth init path/to/pn_genesis.json
 ```
 
 #### Creating the rendezvous point
